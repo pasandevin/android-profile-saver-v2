@@ -6,22 +6,72 @@
     android:layout_height="match_parent"
     tools:context=".SecondFragment">
 
-    <TextView
-        android:id="@+id/textview_second"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/button_second"
-        app:layout_constraintEnd_toEndOf="parent"
+    <!--UserName-->
+    <ImageView
+        android:id="@+id/imgpuser"
+        android:layout_width="38dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/imgemail"
+        app:layout_constraintEnd_toStartOf="@+id/textlabelname"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_person_24" />
+
+    <TextView
+        android:id="@+id/textlabelname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textColor="@color/design_default_color_primary"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgpuser"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button_second"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/previous"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+
+    <!--Email-->
+    <ImageView
+        android:id="@+id/imgemail"
+        android:layout_width="38dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintEnd_toStartOf="@id/textlabelemail"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_second" />
+        app:layout_constraintTop_toBottomOf="@id/imgpuser"
+        app:srcCompat="@drawable/ic_baseline_email_24" />
+
+    <TextView
+        android:id="@+id/textlabelemail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textColor="@color/design_default_color_primary"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imgemail"
+        app:layout_constraintTop_toBottomOf="@id/textlabelname" />
+
+
+    <!--Phone-->
+    <ImageView
+        android:id="@+id/imgphone"
+        android:layout_width="38dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintEnd_toStartOf="@id/textlabelphone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgemail"
+        app:srcCompat="@drawable/ic_baseline_phone_android_24" />
+
+    <TextView
+        android:id="@+id/textlabelphone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Phone"
+        android:textColor="@color/design_default_color_primary"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imgphone"
+        app:layout_constraintTop_toBottomOf="@id/textlabelemail" />
 </androidx.constraintlayout.widget.ConstraintLayout>
