@@ -10,36 +10,54 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.pasandevin.android.profilesaver.v2.databinding.FragmentFirstBinding
 
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
 class FirstFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
-
     var db = FirebaseFirestore.getInstance()
-    var users = mapOf("firstName" to "Pasan", "lastName" to "Jayawardene")
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        db.collection("users").add(users)
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.textPersonName.setOnClickListener {
+            binding.textPersonName.text = null
+        }
+
+        binding.textemail.setOnClickListener {
+            binding.textemail.text = null
+        }
+
+        binding.textphone.setOnClickListener {
+            binding.textphone.text = null
+        }
+
         binding.registerbutton.setOnClickListener {
+            saveData()
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
+    }
+
+    private fun saveData() {
+
+        //getting values from bindings
+        val personName = binding.textPersonName.text.toString()
+        val email = binding.textemail.text.toString()
+        val phone = binding.textphone.text.toString()
+
+        //creating a map
+        var user = mapOf("personName" to personName, "email" to email, "phone" to phone)
+
+        //storing the map in firestore
+        db.collection("user").document("user1").set(user)
     }
 
     override fun onDestroyView() {
